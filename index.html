@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zara 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="za-main">
+<div class="za-column-1">
+    <img class="za-column-img za-column-1-img za-column-1-img--1 za-slider-active" src="girl1.jpg" alt="">
+    <img class="za-column-img za-column-1-img za-column-1-img--2" src="girl3.jpg" alt="">
+    <img class="za-column-img za-column-1-img za-column-1-img--3" src="girl4.jpg" alt="">
+    <div class="za-column-1-logo"><img src="logo.svg" alt=""></div>
+    <div class="za-menu1 fwb">
+        <a href="#" class="za-menu1-item za-menu1-item--1">NEW IN</a>
+        <a href="#" class="za-menu1-item">BEST SELLERS</a>
+        <a href="#" class="za-menu1-item">WOMAN</a>
+    </div>
+    <a href="#" class="za-arrow za-arrow--left" onclick="slider1left()">❮</a>
+</div>
+<div class="za-column-2">
+    <div class="za-menu fwb">
+        MENU &#9776;
+    </div>
+    <div class="za-column-2-in">
+        <img class="za-column-img za-column-2-img za-column-2-img--1 za-slider-active" src="girl3.jpg" alt="">
+        <img class="za-column-img za-column-2-img za-column-2-img--2" src="girl4.jpg" alt="">
+        <img class="za-column-img za-column-2-img za-column-2-img--3" src="girl1.jpg" alt="">
+    </div>
+    <a href="#" class="za-arrow za-arrow--right" onclick="slider1right()">❯</a>
+</div>
+<div class="za-footer">
+    <div class="za-footer-in">
+        <div class="za-footer-title fwb">SPRING 2020</div>
+        <div class="za-footer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Pariatur aliquam cupiditate accusamus sapiente maiores velit vel nulla dolores, eum.
+        </div><div class="za-footer-price fwb">90.99 USD</div>
+    </div>
+</div>
+    </div>
+
+    <script>
+    let slider1active = 1;
+    let slider1count = 3;
+
+    function slider1left(){
+        if (slider1active === 1) slider1active = 3;
+        else slider1active = slider1active - 1;
+        console.log('slider1left()', slider1active);
+
+        slidersSetActive(slider1active);
+    } 
+
+    function slider1right(){
+        if (slider1active === 3) slider1active = 1;
+        else slider1active = slider1active + 1;
+        console.log('slider1right()', slider1active);
+
+        slidersSetActive(slider1active);
+    } 
+
+    function slidersSetActive(num){
+        document.querySelectorAll('.za-column-img').forEach(girl => {
+            girl.classList.remove('za-slider-active');
+        });
+        
+        document.querySelector('.za-column-1-img--'+num).classList.add('za-slider-active');
+        document.querySelector('.za-column-2-img--'+num).classList.add('za-slider-active');
+    }
+    </script>
+</body>
+</html>
